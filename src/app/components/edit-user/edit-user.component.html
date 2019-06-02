@@ -1,0 +1,58 @@
+<div class="sub-page edit-user" [class.modal-page]="mode === 'as-modal'">
+    <div class="viewport">
+      <header class="sub-header sub-header-sm" [class.modal-header]="mode === 'as-modal'">
+        <h3>{{ title }}</h3>
+        <button *ngIf="mode==='as-modal'" type="button" class="close" aria-label="Close"
+                (click)="activeModal.dismiss('back')">
+          <span aria-hidden="false">&times;</span>
+        </button>
+      </header>
+
+      <div class="scroll-container">
+        <div class="role-info-section container-fluid">
+          <div class="loading-box" *ngIf="loading">
+            <div class="img" alt="loading"></div>
+          </div>
+          <div class="frow row">
+            <div class="col-lg-4">
+              <div class="fieldset">
+                <div class="fs-lbl">
+                  <span i18n><sup>*</sup>First Name</span>
+                </div>
+                <div class="fs-val">
+                  <input type="text" class="input-ctrl" [(ngModel)]="user['firstName']" (change)="validateForm()"/>
+                </div>
+                <span class="error-indicate" [ngClass]="{'invalid':submitted && !user['firstName']}" i18n>First name is Reqiured</span>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="fieldset">
+                <div class="fs-lbl">
+                  <span i18n><sup>*</sup>Last Name</span>
+                </div>
+                <div class="fs-val">
+                  <input type="text" class="input-ctrl" [(ngModel)]="user['lastName']" (change)="validateForm()"/>
+                </div>
+                <span class="error-indicate" [ngClass]="{'invalid':submitted && !user['lastName']}" i18n>Last name is Reqiured</span>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="fieldset">
+                <div class="fs-lbl">
+                  <span i18n><sup>*</sup>WokerID</span>
+                </div>
+                <div class="fs-val">
+                  <input type="text" class="input-ctrl" [(ngModel)]="user['workerID']" (change)="validateForm()"/>
+                </div>
+                <span class="error-indicate" [ngClass]="{'invalid':submitted && !user['workerID']}" i18n>WorkerID is Reqiured</span>
+              </div>
+            </div>
+          </div>
+          <div class="bar-action fx-r">
+            <a class="btn btn-save btn-save-form" (click)="closeAccount()" i18n>Close Account</a>
+            <a class="btn btn-save btn-save-form" (click)="update()" i18n>Update</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

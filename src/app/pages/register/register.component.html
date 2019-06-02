@@ -1,0 +1,62 @@
+<div class="login-form">
+  <div class="form">
+    <div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
+    <h4 class="modal-title">Member Signup</h4>
+    <div class="row">
+      <div class="col-md-6">
+          <div class="form-group">
+              <label for="first_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+              <input type="text" placeholder="First Name" class="form-control" [(ngModel)]="first_name" (focus)="RegisterErrorMessage=null" />
+          </div>
+      </div>
+      <div class="col-md-6">
+          <div class="form-group">
+              <label for="last_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+              <input type="text" placeholder="Last Name" class="form-control" [(ngModel)]="last_name" (focus)="RegisterErrorMessage=null" />
+          </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+        <label for="worker_id"><i class="zmdi zmdi-account material-icons-name"></i></label>
+        <input type="text" placeholder="Worker ID" class="form-control" [(ngModel)]="worker_id" (focus)="RegisterErrorMessage=null" />
+    </div>
+
+    <div class="form-group">
+        <label for="password"><i class="zmdi zmdi-lock"></i></label>
+        <input type="password" placeholder="Password" class="form-control" [(ngModel)]="password" (focus)="RegisterErrorMessage=null" />
+    </div>
+    <div class="login-error-message-container" *ngIf="RegisterErrorMessage">
+      <span>{{ RegisterErrorMessage }}</span>
+    </div>
+    <input type="submit" (click)="onRegisterSubmit()" class="btn btn-primary btn-block btn-lg" value="Sign up" />
+    <div class="social-login">
+      <div class="social-login-label">
+        <span class="label-text">or connect with</span>
+      </div>
+      <ul class="social-btn-wrap">
+        <li class="social-btn-item">
+          <a class="social-btn" (click)="signUpWithGoogle()" data-analytics="SignupGoogle" data-automation="google">
+            <img class="social-btn-icon" alt="Login with Google" src="https://hrcdn.net/fcore/assets/google-colored-20b8216731.svg">
+          </a>
+        </li>
+        <li class="social-btn-item">
+          <a class="social-btn" disabled (click)="signUpWithFB()" data-automation="facebook" data-analytics="SignupFacebook">
+            <img class="social-btn-icon" alt="Login with Facebook" src="https://hrcdn.net/fcore/assets/facebook-colored-af4249157d.svg">
+          </a>
+        </li>
+        <!-- <li class="social-btn-item">
+          <a class="social-btn" data-analytics="SignupLinkedIn">
+            <img class="social-btn-icon" alt="Login with LinkedIn" src="https://hrcdn.net/fcore/assets/linkedin-colored-1db195795c.svg">
+          </a>
+        </li>
+        <li class="social-btn-item">
+          <a class="social-btn" data-analytics="SignupGithub">
+            <img class="social-btn-icon" alt="Login with Github" src="https://hrcdn.net/fcore/assets/github-colored-1db995054b.svg">
+          </a>
+        </li> -->
+      </ul>
+    </div>
+  </div>
+  <div class="text-center small">If you have an account already, please <a [routerLink] = "['/login']" class="nav-link">Log in</a></div>
+</div>

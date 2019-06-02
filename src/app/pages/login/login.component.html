@@ -1,0 +1,37 @@
+<div class="login-form">
+    <div class="form">
+      <div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
+      <h4 class="modal-title">Member Login</h4>
+      <div class="form-group">
+          <label for="worker_id"><i class="zmdi zmdi-account material-icons-name"></i></label>
+          <input type="text" placeholder="Worker ID" class="form-control" [(ngModel)]="worker_id" (focus)="LoginErrorMessage=null" />
+      </div>
+
+      <div class="form-group">
+          <label for="password"><i class="zmdi zmdi-lock"></i></label>
+          <input type="password" placeholder="Password" class="form-control" [(ngModel)]="password" (focus)="LoginErrorMessage=null" />
+      </div>
+      <div class="login-error-message-container" *ngIf="LoginErrorMessage">
+        <span>{{ LoginErrorMessage }}</span>
+      </div>
+      <input type="submit" (click)="onLoginSubmit()" class="btn btn-primary btn-block btn-lg" value="Log in" />
+      <div class="social-login">
+        <div class="social-login-label">
+          <span class="label-text">or connect with</span>
+        </div>
+        <ul class="social-btn-wrap">
+          <li class="social-btn-item">
+            <a class="social-btn" (click)="signInWithGoogle()" data-analytics="SignupGoogle" data-automation="google">
+              <img class="social-btn-icon" alt="Login with Google" src="https://hrcdn.net/fcore/assets/google-colored-20b8216731.svg">
+            </a>
+          </li>
+          <li class="social-btn-item">
+            <a class="social-btn" disabled (click)="signInWithFB()" data-automation="facebook" data-analytics="SignupFacebook">
+              <img class="social-btn-icon" alt="Login with Facebook" src="https://hrcdn.net/fcore/assets/facebook-colored-af4249157d.svg">
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="text-center small">Don't have an account? <a [routerLink] = "['/register']" class="nav-link">Sign up</a></div>
+  </div>
